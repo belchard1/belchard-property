@@ -193,7 +193,7 @@ footer{border-top:1px solid var(--ln);padding:50px 0 40px;font-size:.85rem;color
 const CFG={phone:"(503) 300-8531",tel:"+15033008531",min:299,rates:{own:[3,5],co:[6,9]},
 // QUOTE FORM: native Netlify Forms. Submissions are stored in the Netlify dashboard (Forms > quote).
 // Email alerts are set up in the Netlify dashboard (Forms > Form notifications); no address is stored in this file.
-formName:"quote",formAction:"/thanks.html",thanksMarker:"BP-QUOTE-"+"RECEIVED",
+formName:"quote",formAction:"/thanks.html",
 };
 const FAQ=[["How much does Christmas light installation cost?","Pricing depends on the amount of lighting required and whether you provide your own lights or choose company-supplied lights. Customer-supplied lights generally range from $3–$5 per linear foot. Company-supplied lights generally range from $6–$9 per linear foot. A $299 minimum service charge applies. All prices are preliminary, and final pricing is confirmed after reviewing your project."],["Can I use my own Christmas lights?","Yes. We offer an installation option for customers who already have their own Christmas lights."],["Do you provide Christmas lights?","Yes. You can select the company-supplied lighting option, with pricing generally ranging from $6–$9 per linear foot."],["Is there a minimum project price?","Yes. Our minimum service charge is $299."],["Does the online calculator provide an exact quote?","No. The calculator provides a preliminary estimate based on the information you enter. Final pricing is confirmed by phone after reviewing your property’s layout and installation requirements."],["Do you install lights on two-story and three-story homes?","Multi-story residential properties can be considered. Installation requirements and final pricing depend on the home’s architecture and access conditions."],["Can I request additional decorations?","Yes. You can request additional decorative elements such as wreaths, garlands, and landscape lighting. These may affect the final project price."],["Do you offer Christmas light removal?","Seasonal removal can be requested as an additional service. Pricing is determined based on the project."],["How do I get started?","Use our online estimate calculator, submit the quote request form, or contact us directly by phone or text."],["How do I receive my final price?","Once we review your property and project requirements, we’ll confirm the final price with you by phone."]];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -290,12 +290,12 @@ put("decorations",c?(c.decorations.join(", ")||"None"):na);put("seasonal_removal
 put("estimated_price_range",c?c.estimate+" (preliminary estimate, not a quote)":na);put("minimum_service_charge",money(CFG.min));
 put("photos_selected",String(send.length));put("source",attr.source||"");put("campaign",attr.campaign||"");put("location_tag",attr.location||"");
 send.forEach((f,i)=>fd.append("photo_"+(i+1),f,f.name));
-// success ONLY when Netlify accepted the form: HTTP 2xx, redirected to the thank-you page, and that page's marker is present
+// Netlify answers a saved submission with a redirect to the thank-you page, which fetch follows to a final HTTP 200 (HTML, not JSON, so the body is never parsed). An undetected form gives 404 and a server problem 5xx: only a final 2xx counts as success.
 const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),30000);let good=false;
-try{const r=await fetch(CFG.formAction,{method:"POST",body:fd,signal:ctl.signal});if(r.ok&&r.redirected){const txt=await r.text();good=txt.includes(CFG.thanksMarker)}}catch(_){}finally{clearTimeout(t)}
+try{const r=await fetch(CFG.formAction,{method:"POST",body:fd,signal:ctl.signal});good=r.status>=200&&r.status<300}catch(_){}finally{clearTimeout(t)}
 if(!good)return fail("We couldn’t send your request. Please try again.");
 track("quote_form_submitted");
-$("#fm").innerHTML=`<div class="card" style="border-color:var(--g)" role="status"><h3>Request received</h3><p>Thank you for contacting BELCHARD PROPERTY CO. Your request has been received. We’ll be in touch to discuss your project.</p><p style="font-size:.85rem">Reference: ${ref}</p></div>`};
+$("#fm").innerHTML=`<div class="card" style="border-color:var(--g)" role="status"><h3>Thank You! Your Request Has Been Received.</h3><p>Our team will review your project details and contact you shortly.</p><p style="font-size:.85rem">Reference: ${ref}</p></div>`};
 // footer: current year
 $("#yr").textContent=new Date().getFullYear();
 // hide mobile bar while typing
