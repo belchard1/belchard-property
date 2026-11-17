@@ -99,7 +99,7 @@ footer{border-top:1px solid var(--ln);padding:50px 0 40px;font-size:.85rem;color
 #mb.h{transform:translateY(110%)}@media(min-width:800px){#mb{display:none}}
 .rv{opacity:0;transform:translateY(14px);transition:.7s}.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
-</style></head><body>
+.hpw{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;opacity:0;pointer-events:none}</style></head><body>
 <header id="hd"><div class="w hb"><a class="logo" href="#home">BELCHARD PROPERTY CO.</a>
 <nav id="nv"><a href="#home">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#process">Our Process</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
 <a class="btn hc" href="#estimate" data-ev="header_cta">Get a Free Estimate</a><button class="bg" id="mo" aria-label="Open menu">☰</button></div></header>
@@ -161,16 +161,16 @@ footer{border-top:1px solid var(--ln);padding:50px 0 40px;font-size:.85rem;color
 <section id="contact"><a id="quote" aria-hidden="true"></a><div class="w" style="max-width:760px"><span class="lab">Request a Quote</span><h2>Let’s Make Your Home Shine.</h2>
 <p>Tell us a little about your property, and we’ll be in touch to discuss your Christmas lighting project.</p>
 <div id="fm"><div class="sum" id="fsum" hidden></div>
-<form id="qf" novalidate><div class="ft"><div><label for="n">Full name *</label><input type="text" id="n" autocomplete="name"><div class="err" id="e_n"></div></div>
-<div><label for="p">Phone number *</label><input type="tel" id="p" autocomplete="tel" inputmode="tel"><div class="err" id="e_p"></div></div></div>
-<label for="a">Property address *</label><input type="text" id="a" autocomplete="street-address"><div class="err" id="e_a"></div>
-<div class="ft"><div><label for="c">City *</label><input type="text" id="c" autocomplete="address-level2"><div class="err" id="e_c"></div></div>
-<div><label for="z">ZIP code *</label><input type="text" id="z" inputmode="numeric" autocomplete="postal-code"><div class="err" id="e_z"></div></div></div>
-<div class="ft"><div><label for="em">Email (optional)</label><input type="email" id="em" autocomplete="email"><div class="err" id="e_em"></div></div>
-<div><label for="cm">Preferred contact</label><select id="cm"><option>Phone Call</option><option>Text Message</option></select></div></div>
-<label for="d">Additional project notes (optional)</label><textarea id="d" rows="4"></textarea>
-<label for="ph">Upload photos of your home (optional)</label><input type="file" id="ph" accept=".jpg,.jpeg,.png,.webp" multiple><p style="font-size:.8rem;margin:6px 0 0">Photos help us understand your roofline. JPG, PNG, or WEBP, 6 photos max, 10 MB total.</p><div class="err" id="e_ph"></div><div class="pv" id="pv"></div>
-<input type="text" id="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<form id="qf" name="quote" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate><input type="hidden" name="form-name" value="quote"><p class="hpw" aria-hidden="true"><label>Leave this field empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p><div class="ft"><div><label for="n">Full name *</label><input type="text" id="n" name="full_name" autocomplete="name"><div class="err" id="e_n"></div></div>
+<div><label for="p">Phone number *</label><input type="tel" id="p" name="phone" autocomplete="tel" inputmode="tel"><div class="err" id="e_p"></div></div></div>
+<label for="a">Property address *</label><input type="text" id="a" name="address" autocomplete="street-address"><div class="err" id="e_a"></div>
+<div class="ft"><div><label for="c">City *</label><input type="text" id="c" name="city" autocomplete="address-level2"><div class="err" id="e_c"></div></div>
+<div><label for="z">ZIP code *</label><input type="text" id="z" name="zip" inputmode="numeric" autocomplete="postal-code"><div class="err" id="e_z"></div></div></div>
+<div class="ft"><div><label for="em">Email (optional)</label><input type="email" id="em" name="email" autocomplete="email"><div class="err" id="e_em"></div></div>
+<div><label for="cm">Preferred contact</label><select id="cm" name="preferred_contact"><option>Phone Call</option><option>Text Message</option></select></div></div>
+<label for="d">Additional project notes (optional)</label><textarea id="d" name="project_notes" rows="4"></textarea>
+<label for="ph">Upload photos of your home (optional)</label><input type="file" id="ph" accept=".jpg,.jpeg,.png,.webp" multiple><p style="font-size:.8rem;margin:6px 0 0">Photos help us understand your roofline. JPG, PNG, or WEBP, up to 6 photos. Large photos are shrunk automatically.</p><div class="err" id="e_ph"></div><div class="pv" id="pv"></div>
+<div hidden><input type="hidden" name="reference_id"><input type="hidden" name="calculator_used"><input type="hidden" name="lighting_supplied_by"><input type="hidden" name="linear_feet"><input type="hidden" name="stories"><input type="hidden" name="decorations"><input type="hidden" name="seasonal_removal"><input type="hidden" name="estimated_price_range"><input type="hidden" name="minimum_service_charge"><input type="hidden" name="photos_selected"><input type="hidden" name="source"><input type="hidden" name="campaign"><input type="hidden" name="location_tag"><input type="file" name="photo_1" accept="image/*"><input type="file" name="photo_2" accept="image/*"><input type="file" name="photo_3" accept="image/*"><input type="file" name="photo_4" accept="image/*"><input type="file" name="photo_5" accept="image/*"><input type="file" name="photo_6" accept="image/*"></div>
 <p class="dis">All prices are preliminary estimates, not guaranteed quotes. Final pricing is confirmed after reviewing your property’s layout and project requirements by phone.</p>
 <div class="err" id="e_f" role="alert"></div>
 <button class="btn" id="sb" type="submit" style="margin-top:12px">Request My Quote</button></form></div></div></section>
@@ -191,10 +191,9 @@ footer{border-top:1px solid var(--ln);padding:50px 0 40px;font-size:.85rem;color
 <script>
 // ===== CONFIG (edit here) =====
 const CFG={phone:"(503) 300-8531",tel:"+15033008531",min:299,rates:{own:[3,5],co:[6,9]},
-// QUOTE FORM: requests are emailed through FormSubmit (formsubmit.co). The owner must confirm the activation email once.
-// After activating, FormSubmit emails a private random ID: replace the address below with it (https://formsubmit.co/ajax/<random-id>) so the email is not visible in this file.
-// While this is empty the form will NOT report success.
-formEndpoint:"https://formsubmit.co/ajax/belchardproperty@gmail.com",
+// QUOTE FORM: native Netlify Forms. Submissions are stored in the Netlify dashboard (Forms > quote).
+// Email alerts are set up in the Netlify dashboard (Forms > Form notifications); no address is stored in this file.
+formName:"quote",formAction:"/thanks.html",thanksMarker:"BP-QUOTE-"+"RECEIVED",
 };
 const FAQ=[["How much does Christmas light installation cost?","Pricing depends on the amount of lighting required and whether you provide your own lights or choose company-supplied lights. Customer-supplied lights generally range from $3–$5 per linear foot. Company-supplied lights generally range from $6–$9 per linear foot. A $299 minimum service charge applies. All prices are preliminary, and final pricing is confirmed after reviewing your project."],["Can I use my own Christmas lights?","Yes. We offer an installation option for customers who already have their own Christmas lights."],["Do you provide Christmas lights?","Yes. You can select the company-supplied lighting option, with pricing generally ranging from $6–$9 per linear foot."],["Is there a minimum project price?","Yes. Our minimum service charge is $299."],["Does the online calculator provide an exact quote?","No. The calculator provides a preliminary estimate based on the information you enter. Final pricing is confirmed by phone after reviewing your property’s layout and installation requirements."],["Do you install lights on two-story and three-story homes?","Multi-story residential properties can be considered. Installation requirements and final pricing depend on the home’s architecture and access conditions."],["Can I request additional decorations?","Yes. You can request additional decorative elements such as wreaths, garlands, and landscape lighting. These may affect the final project price."],["Do you offer Christmas light removal?","Seasonal removal can be requested as an additional service. Pricing is determined based on the project."],["How do I get started?","Use our online estimate calculator, submit the quote request form, or contact us directly by phone or text."],["How do I receive my final price?","Once we review your property and project requirements, we’ll confirm the final price with you by phone."]];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -255,13 +254,17 @@ $$("[data-pick]").forEach(a=>a.addEventListener("click",()=>{S.type=a.dataset.pi
 function sum(){const el=$("#fsum");if(!S.done){el.hidden=true;return}el.hidden=false;el.innerHTML=`<b style="color:var(--g)">Your calculator selections will be included:</b><br>${TN[S.type]} · ${S.ft} ft · ${S.stories} · ${S.decor.join(", ")||"No decorations"} · Removal: ${S.removal}<br>Preliminary range: ${rangeTxt()} (not a guaranteed quote)`}
 render();
 // ===== FORM =====
-let files=[];const ok=["image/jpeg","image/png","image/webp"],MB=5*1024*1024;let started=false;
+let files=[];const ok=["image/jpeg","image/png","image/webp"],MB=15*1024*1024;let started=false;
 $("#qf").addEventListener("input",()=>{if(!started){started=true;track("quote_form_started")}});
-$("#ph").onchange=e=>{$("#e_ph").textContent="";[...e.target.files].forEach(f=>{if(!ok.includes(f.type))$("#e_ph").textContent=f.name+": use JPG, PNG, or WEBP.";else if(f.size>MB)$("#e_ph").textContent=f.name+" is over 5 MB.";else if(files.length>=6)$("#e_ph").textContent="Maximum 6 photos.";else if(files.reduce((a,x)=>a+x.size,0)+f.size>10*1024*1024)$("#e_ph").textContent=f.name+" would exceed the 10 MB total. Remove a photo or choose a smaller one.";else{files.push(f);track("photo_uploaded")}});e.target.value="";pvw()};
+$("#ph").onchange=e=>{$("#e_ph").textContent="";[...e.target.files].forEach(f=>{if(!ok.includes(f.type))$("#e_ph").textContent=f.name+": use JPG, PNG, or WEBP.";else if(f.size>MB)$("#e_ph").textContent=f.name+" is over 15 MB.";else if(files.length>=6)$("#e_ph").textContent="Maximum 6 photos.";else{files.push(f);track("photo_uploaded")}});e.target.value="";pvw()};
 function pvw(){$("#pv").innerHTML=files.map((f,i)=>`<div>${f.name.replace(/[<>&"]/g,"")} <button type="button" data-r="${i}" aria-label="Remove ${f.name.replace(/[<>&"]/g,"")}">✕</button></div>`).join("");$$("[data-r]").forEach(b=>b.onclick=()=>{files.splice(+b.dataset.r,1);pvw()})}
 const clean=s=>String(s||"").replace(/[<>]/g,"").trim().slice(0,1000);
 let sending=false;
-$("#qf").onsubmit=async e=>{e.preventDefault();if(sending||$("#hp").value)return;
+// shrink a photo so the whole request stays well under Netlify's 8 MB limit
+const shrink=async(f,max,q)=>{try{const bm=await createImageBitmap(f),k=Math.min(1,max/Math.max(bm.width,bm.height)),cv=document.createElement("canvas");cv.width=Math.round(bm.width*k);cv.height=Math.round(bm.height*k);cv.getContext("2d").drawImage(bm,0,0,cv.width,cv.height);const b=await new Promise(r=>cv.toBlob(r,"image/jpeg",q));if(b)return new File([b],f.name.replace(/\.[^.]+$/,"")+".jpg",{type:"image/jpeg"})}catch(_){}return f};
+const MAXBODY=6.5*1024*1024;
+async function prep(){for(const[m,q]of[[1600,.8],[1280,.7],[1000,.6],[800,.5]]){const out=[];for(const f of files)out.push(await shrink(f,m,q));if(out.reduce((a,x)=>a+x.size,0)<=MAXBODY)return out}return null}
+$("#qf").onsubmit=async e=>{e.preventDefault();if(sending)return;const hpv=document.querySelector('#qf [name="bot-field"]');if(hpv&&hpv.value)return;
 const v=id=>clean($("#"+id).value),E={};
 if(v("n").length<2)E.n="Enter your full name.";
 if(v("p").replace(/\D/g,"").replace(/^1/,"").length!==10)E.p="Enter a valid 10-digit US phone number.";
@@ -270,31 +273,29 @@ if(!/^\d{5}(-\d{4})?$/.test(v("z")))E.z="Enter a 5-digit ZIP code.";
 if(v("em")&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("em")))E.em="Enter a valid email address.";
 ["n","p","a","c","z","em"].forEach(k=>$("#e_"+k).textContent=E[k]||"");sum();
 const first=Object.keys(E)[0];if(first){$("#"+first).focus();return}
-const lead={name:v("n"),phone:v("p"),address:v("a"),city:v("c"),zip:v("z"),email:v("em"),contactMethod:$("#cm").value,details:v("d"),photoCount:files.length,attribution:attr,created:Date.now(),
-calculator:S.done?{lighting:TN[S.type],feet:S.ft,stories:S.stories,decorations:S.decor,removal:S.removal,estimate:rangeTxt(),note:"Preliminary, not a quote"}:null};
 sending=true;const sb=$("#sb");sb.disabled=true;sb.textContent="Sending…";$("#e_f").textContent="";
 const ref="BP-"+new Date().toISOString().slice(0,10).replace(/-/g,"")+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
-const c=lead.calculator,na="Not provided (calculator not used)";
-const rec={_subject:`New quote request ${ref}: ${lead.name}`+(c?` (${c.estimate})`:""),_template:"table",_captcha:"false",_honey:"",
-"Reference ID":ref,name:lead.name,"Phone":lead.phone,"Property address":lead.address,"City":lead.city,"ZIP code":lead.zip,"Preferred contact":lead.contactMethod,
-"Project notes":lead.details||"(none)","Calculator used":c?"Yes":"No",
-"Lighting supplied by":c?c.lighting:na,"Linear feet":c?String(c.feet):na,"Stories":c?c.stories:na,"Decorations":c?(c.decorations.join(", ")||"None"):na,"Seasonal removal":c?c.removal:na,
-"Estimated price range":c?c.estimate+" (preliminary estimate, not a quote)":na,"Minimum service charge":money(CFG.min),"Photos selected":String(files.length)};
-if(lead.email)rec.email=lead.email;
-if(attr.source)rec["Source"]=attr.source;if(attr.campaign)rec["Campaign"]=attr.campaign;if(attr.location)rec["Location tag"]=attr.location;
-// returns true ONLY when the service answers HTTP 2xx with success:true; anything else is a failure
-const post=async(body,json)=>{const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),20000);try{const r=await fetch(CFG.formEndpoint,{method:"POST",body:json?JSON.stringify(body):body,headers:json?{"Content-Type":"application/json",Accept:"application/json"}:{Accept:"application/json"},signal:ctl.signal});let d=null;try{d=await r.json()}catch(_){}return !!(r.ok&&d&&(d.success===true||d.success==="true"))}finally{clearTimeout(t)}};
-try{if(!CFG.formEndpoint)throw new Error("not_configured");if(!(await post(rec,true)))throw new Error("rejected")}
-catch(er){const nc=er&&er.message==="not_configured";
-const body=`Quote request: ${lead.name}, ${lead.phone}, ${lead.address}, ${lead.city} ${lead.zip}.`+(c?` ${c.lighting}, ${c.feet} ft, ${c.stories}, decor: ${c.decorations.join("/")||"none"}, removal: ${c.removal}, est ${c.estimate}.`:"");
-$("#e_f").innerHTML=(nc?"Online quote requests are not connected yet, so your request has not been sent. ":"We couldn’t send your request. Please try again. ")+`You can <a href="sms:${CFG.tel}?&body=${encodeURIComponent(body)}" style="color:var(--g3)">text it to us</a> or <a href="tel:${CFG.tel}" style="color:var(--g3)">call ${CFG.phone}</a>.`;
-sb.disabled=false;sb.textContent="Request My Quote";sending=false;return}
+const c=S.done?{lighting:TN[S.type],feet:S.ft,stories:S.stories,decorations:S.decor,removal:S.removal,estimate:rangeTxt()}:null,na="Not provided (calculator not used)";
+const lead={name:v("n"),phone:v("p"),address:v("a"),city:v("c"),zip:v("z")};
+const fail=msg=>{const body=`Quote request: ${lead.name}, ${lead.phone}, ${lead.address}, ${lead.city} ${lead.zip}.`+(c?` ${c.lighting}, ${c.feet} ft, ${c.stories}, decor: ${c.decorations.join("/")||"none"}, removal: ${c.removal}, est ${c.estimate}.`:"");
+$("#e_f").innerHTML=msg+` You can <a href="sms:${CFG.tel}?&body=${encodeURIComponent(body)}" style="color:var(--g3)">text it to us</a> or <a href="tel:${CFG.tel}" style="color:var(--g3)">call ${CFG.phone}</a>.`;sb.disabled=false;sb.textContent="Request My Quote";sending=false};
+let send=[];if(files.length){send=await prep();if(!send)return fail("Your photos are too large to send together. Please remove a few photos and try again.")}
+const fd=new FormData();
+const put=(k,x)=>fd.append(k,x);
+put("form-name",CFG.formName);put("bot-field","");
+put("reference_id",ref);put("full_name",lead.name);put("phone",lead.phone);put("address",lead.address);put("city",lead.city);put("zip",lead.zip);
+put("email",v("em"));put("preferred_contact",$("#cm").value);put("project_notes",v("d")||"(none)");
+put("calculator_used",c?"Yes":"No");put("lighting_supplied_by",c?c.lighting:na);put("linear_feet",c?String(c.feet):na);put("stories",c?c.stories:na);
+put("decorations",c?(c.decorations.join(", ")||"None"):na);put("seasonal_removal",c?c.removal:na);
+put("estimated_price_range",c?c.estimate+" (preliminary estimate, not a quote)":na);put("minimum_service_charge",money(CFG.min));
+put("photos_selected",String(send.length));put("source",attr.source||"");put("campaign",attr.campaign||"");put("location_tag",attr.location||"");
+send.forEach((f,i)=>fd.append("photo_"+(i+1),f,f.name));
+// success ONLY when Netlify accepted the form: HTTP 2xx, redirected to the thank-you page, and that page's marker is present
+const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),30000);let good=false;
+try{const r=await fetch(CFG.formAction,{method:"POST",body:fd,signal:ctl.signal});if(r.ok&&r.redirected){const txt=await r.text();good=txt.includes(CFG.thanksMarker)}}catch(_){}finally{clearTimeout(t)}
+if(!good)return fail("We couldn’t send your request. Please try again.");
 track("quote_form_submitted");
-// photos go as a second, separate message so a photo problem can never lose or fake the request itself
-let note="";
-if(files.length){let ok2=false;try{const fd=new FormData();fd.append("_subject",`Photos for request ${ref}: ${lead.name}`);fd.append("_captcha","false");fd.append("_honey","");fd.append("Reference ID",ref);fd.append("name",lead.name);files.forEach((f,i)=>fd.append("photo_"+(i+1),f,f.name));ok2=await post(fd,false)}catch(_){}
-if(!ok2)note=`<p>Your photos could not be attached. Please text them to <a href="sms:${CFG.tel}" style="color:var(--g3)">${CFG.phone}</a> and mention reference ${ref}.</p>`}
-$("#fm").innerHTML=`<div class="card" style="border-color:var(--g)" role="status"><h3>Request received</h3><p>Thank you for contacting BELCHARD PROPERTY CO. Your request has been received. We’ll be in touch to discuss your project.</p><p style="font-size:.85rem">Reference: ${ref}</p>${note}</div>`};
+$("#fm").innerHTML=`<div class="card" style="border-color:var(--g)" role="status"><h3>Request received</h3><p>Thank you for contacting BELCHARD PROPERTY CO. Your request has been received. We’ll be in touch to discuss your project.</p><p style="font-size:.85rem">Reference: ${ref}</p></div>`};
 // footer: current year
 $("#yr").textContent=new Date().getFullYear();
 // hide mobile bar while typing
